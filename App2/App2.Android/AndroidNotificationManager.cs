@@ -2,15 +2,11 @@
 using Android.Content;
 using Android.Graphics;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+
 using AndroidX.Core.App;
 using App2.Droid;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
 using AndroidApp = Android.App.Application;
 
 [assembly: Xamarin.Forms.Dependency(typeof(AndroidNotificationManager))]

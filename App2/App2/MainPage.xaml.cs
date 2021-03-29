@@ -1,21 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
-    
+using FCM;
+
 namespace App2
 {
+    [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
         INotificationManager notificationManager;
-        int notificationNumber = 0;
-        // Label lblLat, lblLng;
-        //double x, y;
         IMyLocation loc;
         public MainPage()
         {
@@ -27,20 +25,17 @@ namespace App2
                     var lng = e.lng;
                     x.Text = lat.ToString();
                     y.Text = lng.ToString();
-
                 };
-
             notificationManager = DependencyService.Get<INotificationManager>();
             notificationManager.NotificationReceived += (sender, eventArgs) =>
             {
                 var evtData = (NotificationEventArgs)eventArgs;
                 ShowNotification(evtData.Title, evtData.Message);
             };
+            
         }
-
         void OnSendClick(object sender, EventArgs e)
         {
-            notificationNumber++;
             string title = $"Uruchomiono usluge";
             string message = $"Usługa lokalizacji w tle została włączona";
             x.Text = "Pobieram lokalizacje X";
@@ -65,21 +60,18 @@ namespace App2
 
                 if (status == PermissionStatus.Granted)
                 {
-                  
+
                 }
                 else if (status != PermissionStatus.Unknown)
                 {
                     await DisplayAlert("Location Denied", "Can not continue, try again.", "OK");
                 }
+                
             }
             catch (Exception ex)
             {
-
-               
-               
             }
         }
-
         void OnScheduleClick(object sender, EventArgs e)
         {
             DependencyService.Get<IAndroidService>().StopService();

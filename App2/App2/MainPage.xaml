@@ -31,7 +31,9 @@
            TextColor="Blue"
            HorizontalOptions="Center"
            VerticalOptions="Start" />
+        <Label Text="Aplikacja odbiera powiadomienia FCM."
+           TextColor="Blue"
+           HorizontalOptions="Center"
+           VerticalOptions="Start" />
     </StackLayout>
-
-
 </ContentPage>

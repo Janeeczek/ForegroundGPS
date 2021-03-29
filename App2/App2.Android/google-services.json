@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "315121633455",
+    "project_id": "fcmjan-f255c",
+    "storage_bucket": "fcmjan-f255c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315121633455:android:605225209d963a7e71ec5a",
+        "android_client_info": {
+          "package_name": "com.companyname.app2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "315121633455-60i6pvrk8d3ke09sgjjujpap49ulch2a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABmOEVzlh0g1f-5Ba7oCEvK93zAe9ALTM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "315121633455-60i6pvrk8d3ke09sgjjujpap49ulch2a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
