@@ -9,5 +9,6 @@ namespace App2
         void StartService();
 
         void StopService();
+        //static bool serviceStarted;
     }
 }

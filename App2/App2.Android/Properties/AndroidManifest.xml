@@ -3,8 +3,8 @@
 	<uses-sdk android:minSdkVersion="18" android:targetSdkVersion="30" />
 	<application android:label="App2.Android" android:theme="@style/MainTheme">
 		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyCLEkCSfUEu7m6ddDIackYY8-WuzIQ8Amo" />
-		
 		<uses-library android:name="org.apache.http.legacy" android:required="false" />
+		
 		<receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
 		<receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
 			<intent-filter>
@@ -12,28 +12,37 @@
 				<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 				<category android:name="${applicationId}" />
 			</intent-filter>
-
-
 		</receiver>
-		<receiver android:name=".BootCompleteBroadcastReceiver" android:enabled="true" android:exported="true" android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
-		<intent-filter >
-		<action android:name="android.intent.action.BOOT_COMPLETED" />
-		<action android:name="android.intent.action.QUICKBOOT_POWERON" />
-		<category android:name="android.intent.category.DEFAULT" />
-		</intent-filter >
-		</receiver >
+		<activity
+   android:name="app2.MainActivity"
+   android:label="@string/ApplicationName">
+			<intent-filter>
+				<action android:name="android.intent.action.BOOT_COMPLETED" />
+			</intent-filter>
+		</activity>
+		<receiver android:name="com.companyname.app2.BootCompleteBroadcastReceiver" android:enabled="true" android:exported="true" android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+			<intent-filter>
+				<category android:name="android.intent.category.DEFAULT" />
+				<action android:name="android.intent.action.BOOT_COMPLETED" />
+				<action android:name="android.intent.action.ACTION_BOOT_COMPLETED" />
+				<action android:name="android.intent.action.REBOOT" />
+				<action android:name="android.intent.action.QUICKBOOT_POWERON" />
+				<action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+				<action android:name="android.intent.action.ACTION_SHUTDOWN" />
+			</intent-filter>
+		</receiver>
 	</application>
-	
-	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-	<uses-permission android:name="android.permission.REORDER_TASKS" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
-	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
-	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+	<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+	<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_CONTACTS" />
+	<uses-permission android:name="android.permission.READ_CALL_LOG" />
+	<uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+	<uses-permission android:name="android.permission.WRITE_CONTACTS" />
 </manifest>

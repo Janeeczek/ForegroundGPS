@@ -8,11 +8,16 @@ using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using FCM;
 
+
 namespace App2
 {
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        
+
+
+
         INotificationManager notificationManager;
         IMyLocation loc;
         public MainPage()
@@ -66,7 +71,45 @@ namespace App2
                 {
                     await DisplayAlert("Location Denied", "Can not continue, try again.", "OK");
                 }
-                
+                status = await CrossPermissions.Current.CheckPermissionStatusAsync<StoragePermission>();
+                if (status != PermissionStatus.Granted)
+                {
+                    if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Storage))
+                    {
+                        await DisplayAlert("Need storage", "Gunna need that storage", "OK");
+                    }
+
+                    status = await CrossPermissions.Current.RequestPermissionAsync<StoragePermission>();
+                }
+
+                if (status == PermissionStatus.Granted)
+                {
+
+                }
+                else if (status != PermissionStatus.Unknown)
+                {
+                    await DisplayAlert("storage Denied", "Can not continue, try again.", "OK");
+                }
+                status = await CrossPermissions.Current.CheckPermissionStatusAsync<PhonePermission>();
+                if (status != PermissionStatus.Granted)
+                {
+                    if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Phone))
+                    {
+                        await DisplayAlert("Need Phone", "Gunna need that Phone", "OK");
+                    }
+
+                    status = await CrossPermissions.Current.RequestPermissionAsync<PhonePermission>();
+                }
+
+                if (status == PermissionStatus.Granted)
+                {
+
+                }
+                else if (status != PermissionStatus.Unknown)
+                {
+                    await DisplayAlert("Phone Denied", "Can not continue, try again.", "OK");
+                }
+
             }
             catch (Exception ex)
             {

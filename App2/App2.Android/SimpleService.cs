@@ -64,6 +64,7 @@ namespace App2.Droid
             loc.ObtainMyLocation();         
             return StartCommandResult.Sticky;
         }
+        public static bool ServiceStarted { get; private set; }
         public override void OnCreate()
         {
             Console.WriteLine("OnCreate");
@@ -72,7 +73,7 @@ namespace App2.Droid
             wakeLock = pm.NewWakeLock(WakeLockFlags.Partial, this.PackageName);
             wakeLock.Acquire();
 
-        }//https://forums.xamarin.com/discussion/83601/android-service///////////////////////////////////
+        }
         public override void OnRebind(Intent intent)
         {
             Console.WriteLine("OnRebind");

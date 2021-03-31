@@ -76,9 +76,8 @@ namespace App2
             BigPictureStyle picStyle = new BigPictureStyle();
             picStyle.BigPicture(bitmap);
 
-
-
-            picStyle.SetSummaryText("This is a BigPicture");
+        
+          picStyle.SetSummaryText("This is a BigPicture");
             
             var pendingIntent = PendingIntent.GetActivity(this, pendingIntentId++, intent, PendingIntentFlags.OneShot);
 

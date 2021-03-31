@@ -2,6 +2,7 @@
 
 <resources>
 	<string name="ok">OK</string>
+	<string name="ApplicationName">App2</string>
 	<string name="get_last_location_button_text">Get Last Location</string>
 	<string name="request_location_button_text">Request Location Updates</string>
 	<string name="request_location_in_progress_button_text">Request Location Updates (In Progress)</string>
